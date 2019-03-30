@@ -5,12 +5,12 @@ import Html exposing (Html)
 import Collage
 import Collage.Render as Render
 import Color
-import Basics
+
 
 main : Html msg
 main =
     let pastelRed =
-            Color.hsl (Basics.degrees 0) 0.8 0.6
+            Color.hsl (degrees 0) 0.8 0.6
                 |> Collage.uniform
     in
     Collage.triangle 60
