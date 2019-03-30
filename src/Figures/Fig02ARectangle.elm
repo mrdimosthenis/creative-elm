@@ -1,4 +1,4 @@
-module Figures.Fig01ACircle exposing (..)
+module Figures.Fig02ARectangle exposing (..)
 
 
 import Html exposing (Html)
@@ -8,7 +8,7 @@ import Collage.Render as Render
 
 main : Html msg
 main =
-    Collage.circle 10
+    Collage.rectangle 100 50
         |> Collage.outlined Collage.defaultLineStyle
         |> Render.svg
 
