@@ -1,4 +1,4 @@
-module Figures.Fig03ATriangle exposing (..)
+module Figures.Fig03 exposing (..)
 
 
 import Html exposing (Html)

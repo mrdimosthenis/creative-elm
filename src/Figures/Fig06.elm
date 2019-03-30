@@ -1,4 +1,4 @@
-module Figures.Fig06NoEvilEyesHere exposing (..)
+module Figures.Fig06 exposing (..)
 
 
 import Html exposing (Html)

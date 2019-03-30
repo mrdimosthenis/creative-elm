@@ -1,4 +1,4 @@
-module Figures.Fig04ACircleBesideARectangle exposing (..)
+module Figures.Fig04 exposing (..)
 
 
 import Html exposing (Html)

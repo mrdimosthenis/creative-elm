@@ -1,4 +1,4 @@
-module Figures.Fig09RenderingPastelRedInATriangle exposing (..)
+module Figures.Fig09 exposing (..)
 
 
 import Html exposing (Html)

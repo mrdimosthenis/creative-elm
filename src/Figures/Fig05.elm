@@ -1,4 +1,4 @@
-module Figures.Fig05TheWidthOfACircle exposing (..)
+module Figures.Fig05 exposing (..)
 
 
 import Html exposing (Html)
