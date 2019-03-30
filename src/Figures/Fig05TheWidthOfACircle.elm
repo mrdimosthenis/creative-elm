@@ -19,7 +19,8 @@ main =
     in
     [ smallCircle
     , smallCircle
-    , smallCircle ]
+    , smallCircle
+    ]
         |> Layout.horizontal
         |> Layout.align Layout.base
         |> List.singleton
