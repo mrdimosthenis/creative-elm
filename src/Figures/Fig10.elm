@@ -8,8 +8,8 @@ import Collage.Layout as Layout
 import Color
 
 
-spin : Color.Color -> Float -> Color.Color
-spin color angle =
+spin : Float -> Color.Color -> Color.Color
+spin angle color =
     let
         { hue, saturation, lightness, alpha } =
             Color.toHsla color
@@ -21,8 +21,7 @@ main : Html msg
 main =
     let
         redRotatedBy r =
-            degrees r
-                |> spin Color.red
+            spin (degrees r) Color.red
                 |> Collage.uniform
     in
     [ 0, 15, 30 ]

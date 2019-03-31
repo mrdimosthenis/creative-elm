@@ -8,8 +8,8 @@ import Collage.Layout as Layout
 import Color
 
 
-lighten : Color.Color -> Float -> Color.Color
-lighten color diff =
+lighten : Float -> Color.Color -> Color.Color
+lighten diff color =
     let
         { hue, saturation, lightness, alpha } =
             Color.toHsla color
@@ -17,8 +17,8 @@ lighten color diff =
     Color.hsla hue saturation (lightness + diff) alpha
 
 
-saturate : Color.Color -> Float -> Color.Color
-saturate color diff =
+saturate : Float -> Color.Color -> Color.Color
+saturate diff color =
     let
         { hue, saturation, lightness, alpha } =
             Color.toHsla color
@@ -30,14 +30,14 @@ main : Html msg
 main =
     let
         circleLightedBy x =
-            (lighten Color.red x
+            (lighten x Color.red
                 |> Collage.uniform
                 |> Collage.filled)
                 <| Collage.circle 20
         circles =
             List.map circleLightedBy [ -0.2, 0.0, 0.2 ]
         rectangleSaturatedBy x =
-            (saturate Color.red x
+            (saturate x Color.red
                 |> Collage.uniform
                 |> Collage.filled)
                 <| Collage.rectangle 40 40
