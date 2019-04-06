@@ -30,7 +30,7 @@ main =
                     , defaultLineStyle
                     )
                 |> List.singleton
-                |> List.append [ Collage.outlined defaultLineStyle (Collage.rectangle 6 20) ]
+                |> (::) (Collage.outlined defaultLineStyle (Collage.rectangle 6 20))
                 |> Layout.vertical
         field =
             Collage.filled (Collage.uniform Color.green) (Collage.rectangle 80 25)

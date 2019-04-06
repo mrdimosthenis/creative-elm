@@ -58,7 +58,7 @@ main =
             |> Layout.horizontal
             |> Layout.align Layout.base
             |> List.singleton
-            |> List.append [ triangle 0.0 10.0 ]
+            |> (::) (triangle 0.0 10.0)
             |> Layout.vertical
             |> Render.svg
 

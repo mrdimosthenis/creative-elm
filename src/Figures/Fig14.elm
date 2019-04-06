@@ -20,8 +20,8 @@ main =
     Collage.rectangle 20 6
         |> Collage.outlined Collage.defaultLineStyle
         |> List.singleton
-        |> List.append [ Collage.rectangle 6 20
-            |> Collage.outlined Collage.defaultLineStyle ]
+        |> (::) (Collage.rectangle 6 20
+                    |> Collage.outlined Collage.defaultLineStyle)
         |> List.append [ circles ]
         |> Layout.vertical
         |> Render.svg

@@ -24,7 +24,7 @@ main =
         |> Layout.horizontal
         |> Layout.align Layout.base
         |> List.singleton
-        |> List.append [ largeCircle ]
+        |> (::) largeCircle
         |> Layout.stack
         |> Render.svg
 
