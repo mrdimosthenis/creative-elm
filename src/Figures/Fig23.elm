@@ -7,11 +7,13 @@ import Collage.Render as Render
 import Collage.Layout as Layout
 
 
+unit : Collage.Collage msg
+unit =
+    Collage.outlined Collage.defaultLineStyle (Collage.circle 20)
+
+
 cross : Int -> Collage.Collage msg
 cross n =
-    let
-        unit = Collage.outlined Collage.defaultLineStyle (Collage.circle 20)
-    in
     case n of
         0 -> unit
         _ -> let
