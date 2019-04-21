@@ -11,6 +11,7 @@
             "elm/core": "1.0.2",
             "elm/html": "1.0.0",
             "elm/svg": "1.0.1",
+            "ianmackenzie/elm-geometry": "1.2.1",
             "timjs/elm-collage": "2.0.1"
         },
         "indirect": {
@@ -18,7 +19,10 @@
             "elm/time": "1.0.0",
             "elm/url": "1.0.0",
             "elm/virtual-dom": "1.0.2",
-            "elm-community/basics-extra": "4.0.0"
+            "elm-community/basics-extra": "4.0.0",
+            "ianmackenzie/elm-float-extra": "1.0.1",
+            "ianmackenzie/elm-interval": "1.0.1",
+            "ianmackenzie/elm-triangular-mesh": "1.0.2"
         }
     },
     "test-dependencies": {
