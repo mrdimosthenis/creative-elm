@@ -2,30 +2,33 @@ module Figures.Fig32 exposing (..)
 
 
 import Html exposing (Html)
-import Svg
-import Svg.Attributes as Attr
+import TypedSvg
+import TypedSvg.Core as Svg
+import TypedSvg.Attributes as Attr
+import TypedSvg.Attributes.InPx as PxAttr
+import TypedSvg.Types as SvgTypes
+import Color
 
-
-dotAt : Int -> Int -> Svg.Svg msg
+dotAt : Float -> Float -> Svg.Svg msg
 dotAt x y =
-    Svg.circle
-        [ Attr.cx (String.fromInt x)
-        , Attr.cy (String.fromInt y)
-        , Attr.r "5"
-        , Attr.stroke "crimson"
-        , Attr.strokeWidth "3"
-        , Attr.fill "none"
+    TypedSvg.circle
+        [ PxAttr.cx x
+        , PxAttr.cy y
+        , PxAttr.r 5.0
+        , Attr.stroke Color.red
+        , PxAttr.strokeWidth 3.0
+        , Attr.fill SvgTypes.FillNone
         ]
         []
 
 
 main : Html msg
 main =
-    Svg.svg
+    TypedSvg.svg
         []
-        [ dotAt 0 0
-        , dotAt 100 0
-        , dotAt 0 100
-        , dotAt 100 100
+        [ dotAt 10.0 10.0
+        , dotAt 110.0 10.0
+        , dotAt 10.0 110.0
+        , dotAt 110.0 110.0
         ]
 
