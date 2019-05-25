@@ -51,16 +51,8 @@ style shape hue =
             { defaultLineStyle
             |  fill = lineColor
             }
-        fillColor =
-            { hue = hue
-            , saturation = 1.0
-            , lightness = 0.75
-            , alpha = 1.0
-            }
-            |> Color.fromHsla
-            |> Collage.uniform
     in
-    Collage.styled (fillColor, lineStyle) shape
+    Collage.outlined lineStyle shape
 
 
 iter : Int -> Collage.Collage msg
