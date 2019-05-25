@@ -23,9 +23,10 @@ colored shape color =
     \n ->
         let
             lineStyle =
-                {defaultLineStyle | fill = Collage.uniform (color n)
-                                  , thickness = 4
-                                  }
+                { defaultLineStyle
+                | fill = Collage.uniform (color n)
+                , thickness = 4
+                }
         in
         Collage.outlined lineStyle (shape n)
 
