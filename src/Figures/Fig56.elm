@@ -1,11 +1,12 @@
 module Figures.Fig56 exposing (..)
 
+
+import Html exposing (Html)
 import Browser
 import Collage exposing (Collage)
 import Collage.Layout as Layout
 import Collage.Render as Render
 import Color exposing (Color)
-import Html exposing (Html)
 import Random
 
 

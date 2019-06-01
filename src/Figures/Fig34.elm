@@ -14,10 +14,8 @@ import Color
 triangleAt : Vector2d.Vector2d -> Svg.Svg msg
 triangleAt point =
     let
-        x =
-            Vector2d.xComponent point
-        y =
-            Vector2d.yComponent point
+        (x, y) =
+            Vector2d.components point
     in
     TypedSvg.svg
         [ PxAttr.x x

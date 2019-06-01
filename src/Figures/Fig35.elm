@@ -14,10 +14,8 @@ import Color
 dotAt : Vector2d.Vector2d -> Svg.Svg msg
 dotAt point =
     let
-        x =
-            Vector2d.xComponent point
-        y =
-            Vector2d.yComponent point
+        (x, y) =
+            Vector2d.components point
     in
     TypedSvg.circle
         [ PxAttr.cx x
