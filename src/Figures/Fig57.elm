@@ -5,7 +5,7 @@ import Collage exposing (Collage)
 import Collage.Layout as Layout
 import Collage.Render as Render
 import Color exposing (Color)
-import Html exposing (..)
+import Html exposing (Html)
 import Random
 
 
