@@ -40,12 +40,7 @@ style : Collage.Shape -> Float -> Collage.Collage msg
 style shape hue =
     let
         lineColor =
-            { hue = hue
-            , saturation = 1.0
-            , lightness = 0.25
-            , alpha = 1.0
-            }
-            |> Color.fromHsla
+            Color.hsla hue 1.0 0.25 1.0
             |> Collage.uniform
         lineStyle =
             { defaultLineStyle

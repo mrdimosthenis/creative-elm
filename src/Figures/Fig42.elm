@@ -18,11 +18,7 @@ lineStyle =
 
 baseColor : Color.Color
 baseColor =
-    Color.fromHsla { hue = degrees 0.0
-                   , saturation = 0.7
-                   , lightness = 0.7
-                   , alpha = 1.0
-                   }
+    Color.hsla (degrees 0.0) 0.7 0.7 1.0
 
 
 spinning : Int -> Color.Color

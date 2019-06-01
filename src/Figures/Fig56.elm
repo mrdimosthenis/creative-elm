@@ -73,15 +73,7 @@ randomHue = Random.float 0 1
 
 randomColor : Float -> Float -> Random.Generator Color.Color
 randomColor saturation lightness =
-    let
-        f = \hue -> Color.fromHsla
-                        { hue = hue
-                        , saturation = saturation
-                        , lightness = lightness
-                        , alpha = 1.0
-                        }
-    in
-    Random.map f randomHue
+    Random.map (\hue -> Color.hsla hue saturation lightness 1.0) randomHue
 
 
 randomPastel : Random.Generator Color.Color

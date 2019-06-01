@@ -73,15 +73,7 @@ randomHue = Random.float 0 1
 
 randomColor : Random.Generator Color.Color
 randomColor =
-    let
-        f = \hue -> Color.fromHsla
-                        { hue = hue
-                        , saturation = 0.7
-                        , lightness = 0.7
-                        , alpha = 1.0
-                        }
-    in
-    Random.map f randomHue
+    Random.map (\hue -> Color.hsla hue 0.7 0.7 1.0) randomHue
 
 
 coloredRectangle : Color.Color -> Collage.Collage msg
