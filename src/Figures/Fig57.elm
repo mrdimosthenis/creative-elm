@@ -85,7 +85,7 @@ randomColor =
 
 coloredRectangle : Color.Color -> Collage.Collage msg
 coloredRectangle color =
-    Collage.filled (Collage.uniform color) (Collage.rectangle 20 20)
+    Collage.filled (Collage.uniform color) (Collage.rectangle 40 40)
 
 
 randomColorBoxes : Int -> Random.Generator (Collage.Collage msg)
