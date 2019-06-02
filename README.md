@@ -1,6 +1,6 @@
 # Creative Elm
 
-Drawing composition in **Elm** - _The purely functional typed approach!_
+Drawing creation in **Elm** - _The purely functional typed approach!_
 
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig01.png">](https://ellie-app.com/5HX5GYyBP83a1)</kbd>
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig02.png" width="100">](https://ellie-app.com/5HX6cLYbKz3a1)</kbd>
