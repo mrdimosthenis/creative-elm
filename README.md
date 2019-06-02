@@ -33,9 +33,9 @@ Drawings composition in **Elm** - _The purely functional typed approach!_
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig42.png" width="100">](https://ellie-app.com/5HWZsV6TY5za1)</kbd>
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig45.png" width="100">](https://ellie-app.com/5HWZ8LXrTFta1)</kbd>
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig46.png" width="100">](https://ellie-app.com/5HWYf7vDcBpa1)</kbd>
-<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig56.png" width="100">](https://raw.githubusercontent.com/mrdimosthenis/creative-elm/master/src/Fig56.elm)</kbd>
-<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig57.png" width="100">](https://raw.githubusercontent.com/mrdimosthenis/creative-elm/master/src/Fig57.elm)</kbd>
-<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig59.png" width="100">](https://raw.githubusercontent.com/mrdimosthenis/creative-elm/master/src/Fig59.elm)</kbd>
-<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig60.png" width="100">](https://raw.githubusercontent.com/mrdimosthenis/creative-elm/master/src/Fig60.elm)</kbd>
+<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig56.png" width="100">](https://github.com/mrdimosthenis/creative-elm/blob/master/src/Fig56.elm)</kbd>
+<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig57.png" width="100">](https://github.com/mrdimosthenis/creative-elm/blob/master/src/Fig57.elm)</kbd>
+<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig59.png" width="100">](https://github.com/mrdimosthenis/creative-elm/blob/master/src/Fig59.elm)</kbd>
+<kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig60.png" width="100">](https://github.com/mrdimosthenis/creative-elm/blob/master/src/Fig60.elm)</kbd>
 
 The drawings and the implementation are based on [Creative Scala](https://github.com/underscoreio/creative-scala).
