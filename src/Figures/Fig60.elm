@@ -82,7 +82,7 @@ step : Vector2d.Vector2d -> Random.Generator Vector2d.Vector2d
 step point =
     let
         drift =
-            (10.0, 10.0)
+            (5.0, 5.0)
             |> Vector2d.fromComponents
             |> Vector2d.sum point
         noise =

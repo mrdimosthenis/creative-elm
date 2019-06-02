@@ -25,10 +25,12 @@ dotAt x y =
 main : Html msg
 main =
     TypedSvg.svg
-        []
+        [ PxAttr.width 100.0
+        , PxAttr.height 100.0
+        ]
         [ dotAt 10.0 10.0
-        , dotAt 110.0 10.0
-        , dotAt 10.0 110.0
-        , dotAt 110.0 110.0
+        , dotAt 90.0 10.0
+        , dotAt 10.0 90.0
+        , dotAt 90.0 90.0
         ]
 
