@@ -38,4 +38,4 @@ Drawing creation in **Elm** - _The purely functional typed approach!_
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig59.png" width="100">](https://github.com/mrdimosthenis/creative-elm/blob/master/src/Fig59.elm)</kbd>
 <kbd>[<img src="https://github.com/mrdimosthenis/creative-elm/raw/master/png/Fig60.png" width="100">](https://github.com/mrdimosthenis/creative-elm/blob/master/src/Fig60.elm)</kbd>
 
-The drawings and the implementation are based on [Creative Scala](https://github.com/underscoreio/creative-scala).
+The drawings and its implementation are based on [Creative Scala](https://github.com/underscoreio/creative-scala).
