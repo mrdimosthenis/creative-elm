@@ -1,34 +1,34 @@
-fig01
-fig02
-fig03
-fig04
-fig05
-fig06
-fig09
-fig10
-fig11
-fig12
-fig13
-fig14
-fig16
-fig17
-fig19
-fig23
-fig24
-fig25
-fig26
-fig27
-fig28
-fig29
-fig32
-fig34
-fig35
-fig36
-fig38
-fig40
-fig42
-fig45
-fig46
+fig01 https://ellie-app.com/5HX5GYyBP83a1
+fig02 https://ellie-app.com/5HX6cLYbKz3a1
+fig03 https://ellie-app.com/5HX6qC7SS8sa1
+fig04 https://ellie-app.com/5HX6CHmnCxZa1
+fig05 https://ellie-app.com/5HX36PYVt9za1
+fig06 https://ellie-app.com/5HX3k7zfBVCa1
+fig09 https://ellie-app.com/5HX43DKHHM8a1
+fig10 https://ellie-app.com/5HX4gvmcFkta1
+fig11 https://ellie-app.com/5HX4wRbzzQSa1
+fig12 https://ellie-app.com/5HX6Yq9ZJmza1
+fig13 https://ellie-app.com/5HX7dfgLPnca1
+fig14 https://ellie-app.com/5HX7swVXSqqa1
+fig16 https://ellie-app.com/5HX7FNqsQFra1
+fig17 https://ellie-app.com/5HX86YrvWrxa1
+fig19 https://ellie-app.com/5HX8k3pRZkFa1
+fig23 https://ellie-app.com/5HX8C5qCxLWa1
+fig24 https://ellie-app.com/5HX8PV8VKbTa1
+fig25 https://ellie-app.com/5HXbZhw6Yq5a1
+fig26 https://ellie-app.com/5HXcdqp4VtTa1
+fig27 https://ellie-app.com/5HXcscDD22Ma1
+fig28 https://ellie-app.com/5HXcJxGcNTTa1
+fig29 https://ellie-app.com/5HXcYsgFQ3Ra1
+fig32 https://ellie-app.com/5HX9qjcJCDMa1
+fig34 https://ellie-app.com/5HX9VLGTnLWa1
+fig35 https://ellie-app.com/5HXbL2mFLTza1
+fig36 https://ellie-app.com/5HX9b3w5d7ba1
+fig38 https://ellie-app.com/5HWZWtW3wL4a1
+fig40 https://ellie-app.com/5HWZJhwVDLxa1
+fig42 https://ellie-app.com/5HWZsV6TY5za1
+fig45 https://ellie-app.com/5HWZ8LXrTFta1
+fig46 https://ellie-app.com/5HWYf7vDcBpa1
 fig56
 fig57
 fig59
