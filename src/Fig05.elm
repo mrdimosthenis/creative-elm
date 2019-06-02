@@ -1,10 +1,9 @@
-module Figures.Fig05 exposing (..)
+module Figures.Fig05 exposing (main)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
+import Html exposing (Html)
 
 
 main : Html msg
@@ -13,6 +12,7 @@ main =
         smallCircle =
             Collage.circle 20
                 |> Collage.outlined Collage.defaultLineStyle
+
         largeCircle =
             Collage.circle 60
                 |> Collage.outlined Collage.defaultLineStyle
@@ -27,4 +27,3 @@ main =
         |> (::) largeCircle
         |> Layout.stack
         |> Render.svg
-

@@ -1,11 +1,10 @@
-module Figures.Fig26 exposing (..)
+module Figures.Fig26 exposing (growingBoxes, main, rectangle)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 rectangle : Float -> Float -> Collage.Collage msg
@@ -24,8 +23,11 @@ growingBoxes count size =
             toFloat size
     in
     case count of
-        0 -> Layout.empty
-        _ -> growingBoxes (count - 1) (size + 10)
+        0 ->
+            Layout.empty
+
+        _ ->
+            growingBoxes (count - 1) (size + 10)
                 |> List.singleton
                 |> (::) (rectangle floatSize floatSize)
                 |> Layout.horizontal
@@ -34,4 +36,3 @@ growingBoxes count size =
 main : Html msg
 main =
     Render.svg (growingBoxes 5 30)
-

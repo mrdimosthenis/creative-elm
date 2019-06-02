@@ -1,11 +1,10 @@
-module Figures.Fig27 exposing (..)
+module Figures.Fig27 exposing (grandientBoxes, main, rectangle, spin)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 spin : Float -> Color.Color -> Color.Color
@@ -25,8 +24,11 @@ rectangle color =
 grandientBoxes : Int -> Color.Color -> Collage.Collage msg
 grandientBoxes n color =
     case n of
-        0 -> Layout.empty
-        _ -> color
+        0 ->
+            Layout.empty
+
+        _ ->
+            color
                 |> spin (degrees 15)
                 |> grandientBoxes (n - 1)
                 |> List.singleton
@@ -37,4 +39,3 @@ grandientBoxes n color =
 main : Html msg
 main =
     Render.svg (grandientBoxes 5 Color.blue)
-

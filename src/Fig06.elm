@@ -1,11 +1,10 @@
-module Figures.Fig06 exposing (..)
+module Figures.Fig06 exposing (main)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 main : Html msg
@@ -21,4 +20,3 @@ main =
     ]
         |> Layout.stack
         |> Render.svg
-

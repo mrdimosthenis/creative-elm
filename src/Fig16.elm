@@ -1,11 +1,10 @@
-module Figures.Fig16 exposing (..)
+module Figures.Fig16 exposing (main)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 main : Html msg
@@ -18,11 +17,13 @@ main =
                         ( Collage.uniform c
                         , l
                         )
-                        (Collage.circle r))
+                        (Collage.circle r)
+                )
                 [ 10, 20, 30 ]
                 [ Color.red, Color.white, Color.red ]
-                [ defaultLineStyle, defaultLineStyle, { defaultLineStyle | thickness = 2.0 }]
+                [ defaultLineStyle, defaultLineStyle, { defaultLineStyle | thickness = 2.0 } ]
                 |> Layout.stack
+
         base =
             Collage.rectangle 20 6
                 |> Collage.styled
@@ -32,10 +33,10 @@ main =
                 |> List.singleton
                 |> (::) (Collage.outlined defaultLineStyle (Collage.rectangle 6 20))
                 |> Layout.vertical
+
         field =
             Collage.filled (Collage.uniform Color.green) (Collage.rectangle 80 25)
     in
     [ circles, base, field ]
         |> Layout.vertical
         |> Render.svg
-

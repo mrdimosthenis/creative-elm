@@ -1,11 +1,10 @@
-module Figures.Fig29 exposing (..)
+module Figures.Fig29 exposing (circle, fadeCircles, fadeOut, gradientCircles, main, spin)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 circle : Int -> Color.Color -> Collage.Collage msg
@@ -37,8 +36,11 @@ spin angle color =
 fadeCircles : Int -> Int -> Color.Color -> Collage.Collage msg
 fadeCircles n size color =
     case n of
-        0 -> Layout.empty
-        _ -> fadeOut 0.05 color
+        0 ->
+            Layout.empty
+
+        _ ->
+            fadeOut 0.05 color
                 |> fadeCircles (n - 1) (size + 7)
                 |> List.singleton
                 |> (::) (circle size color)
@@ -48,8 +50,11 @@ fadeCircles n size color =
 gradientCircles : Int -> Int -> Color.Color -> Collage.Collage msg
 gradientCircles n size color =
     case n of
-        0 -> Layout.empty
-        _ -> spin (degrees 15) color
+        0 ->
+            Layout.empty
+
+        _ ->
+            spin (degrees 15) color
                 |> gradientCircles (n - 1) (size + 7)
                 |> List.singleton
                 |> (::) (circle size color)
@@ -61,4 +66,3 @@ main =
     [ fadeCircles 20 50 Color.red, gradientCircles 20 50 Color.lightBlue ]
         |> Layout.horizontal
         |> Render.svg
-

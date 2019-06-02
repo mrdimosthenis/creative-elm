@@ -1,11 +1,10 @@
-module Figures.Fig19 exposing (..)
+module Figures.Fig19 exposing (main)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 main : Html msg
@@ -14,6 +13,7 @@ main =
         roof =
             Collage.triangle 50
                 |> Collage.filled (Collage.uniform Color.brown)
+
         frontDoor =
             Collage.rectangle 50 25
                 |> Collage.filled (Collage.uniform Color.red)
@@ -23,10 +23,12 @@ main =
                 |> List.singleton
                 |> (::) (Collage.filled (Collage.uniform Color.red) (Collage.rectangle 50 15))
                 |> Layout.vertical
+
         house =
             [ roof, frontDoor ]
-            |> Layout.vertical
-            |> Layout.align Layout.bottom
+                |> Layout.vertical
+                |> Layout.align Layout.bottom
+
         tree =
             Collage.rectangle 10 20
                 |> Collage.filled (Collage.uniform Color.brown)
@@ -34,6 +36,7 @@ main =
                 |> (::) (Collage.filled (Collage.uniform Color.green) (Collage.circle 25))
                 |> Layout.vertical
                 |> Layout.align Layout.bottom
+
         streetSegment =
             Collage.rectangle 15 3
                 |> Collage.filled (Collage.uniform Color.black)
@@ -45,10 +48,12 @@ main =
                 |> (::) (Collage.filled (Collage.uniform Color.black) (Collage.rectangle 45 6))
                 |> List.reverse
                 |> Layout.vertical
+
         street =
             List.repeat 3 streetSegment
                 |> Layout.horizontal
                 |> Layout.align Layout.base
+
         houseAndGarden =
             [ house, tree ]
                 |> Layout.horizontal
@@ -61,4 +66,3 @@ main =
     List.repeat 3 houseAndGarden
         |> Layout.horizontal
         |> Render.svg
-

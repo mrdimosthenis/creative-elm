@@ -1,18 +1,20 @@
-module Figures.Fig36 exposing (..)
+module Figures.Fig36 exposing (circle, colored, concentricShapes, fading, main, size, spinning, square, triangle)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 concentricShapes : Int -> (Int -> Collage.Collage msg) -> Collage.Collage msg
 concentricShapes n shape =
     case n of
-        0 -> Layout.empty
-        _ -> concentricShapes (n - 1) shape
+        0 ->
+            Layout.empty
+
+        _ ->
+            concentricShapes (n - 1) shape
                 |> List.singleton
                 |> (::) (shape n)
                 |> Layout.stack
@@ -24,8 +26,8 @@ colored shape color =
         let
             lineStyle =
                 { defaultLineStyle
-                | fill = Collage.uniform (color n)
-                , thickness = 4
+                    | fill = Collage.uniform (color n)
+                    , thickness = 4
                 }
         in
         Collage.outlined lineStyle (shape n)
@@ -36,6 +38,7 @@ fading n =
     let
         { hue, saturation, lightness, alpha } =
             Color.toHsla Color.blue
+
         r =
             1.0 - (toFloat n / 20.0)
     in
@@ -47,8 +50,10 @@ spinning n =
     let
         { hue, saturation, lightness, alpha } =
             Color.toHsla Color.blue
+
         newHue =
-            n * 5
+            n
+                * 5
                 |> toFloat
                 |> degrees
                 |> (+) hue
@@ -85,4 +90,3 @@ main =
         |> List.map (concentricShapes 10)
         |> Layout.horizontal
         |> Render.svg
-

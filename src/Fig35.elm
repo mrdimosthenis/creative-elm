@@ -1,20 +1,19 @@
-module Figures.Fig35 exposing (..)
+module Figures.Fig35 exposing (dotAt, loop, main, rose, sample)
 
-
+import Color
 import Html exposing (Html)
-import Vector2d
 import TypedSvg
-import TypedSvg.Core as Svg
 import TypedSvg.Attributes as Attr
 import TypedSvg.Attributes.InPx as PxAttr
+import TypedSvg.Core as Svg
 import TypedSvg.Types as SvgTypes
-import Color
+import Vector2d
 
 
 dotAt : Vector2d.Vector2d -> Svg.Svg msg
 dotAt point =
     let
-        (x, y) =
+        ( x, y ) =
             Vector2d.components point
     in
     TypedSvg.circle
@@ -28,10 +27,11 @@ dotAt point =
 
 rose : Float -> Svg.Svg msg
 rose angle =
-    (200 * cos (angle * 7)
-    , angle)
+    ( 200 * cos (angle * 7)
+    , angle
+    )
         |> Vector2d.fromPolarComponents
-        |> Vector2d.sum (Vector2d.fromComponents (200, 200))
+        |> Vector2d.sum (Vector2d.fromComponents ( 200, 200 ))
         |> dotAt
 
 
@@ -42,8 +42,11 @@ loop step count =
             step * toFloat count
     in
     case count of
-        0 -> TypedSvg.g [] []
-        _ -> TypedSvg.g [] [ rose angle, loop step (count - 1) ]
+        0 ->
+            TypedSvg.g [] []
+
+        _ ->
+            TypedSvg.g [] [ rose angle, loop step (count - 1) ]
 
 
 sample : Int -> Svg.Svg msg
@@ -62,4 +65,3 @@ main =
         , PxAttr.height 410.0
         ]
         [ sample 300 ]
-

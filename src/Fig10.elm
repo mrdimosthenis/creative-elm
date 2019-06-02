@@ -1,11 +1,10 @@
-module Figures.Fig10 exposing (..)
+module Figures.Fig10 exposing (main, spin)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 spin : Float -> Color.Color -> Color.Color
@@ -25,12 +24,13 @@ main =
                 |> Collage.uniform
     in
     [ 0, 15, 30 ]
-        |> List.map (\r -> Collage.circle 100
-                             |> Collage.styled
-                                 ( redRotatedBy r
-                                 , { defaultLineStyle | thickness = 5.0 }
-                                 )
-                    )
+        |> List.map
+            (\r ->
+                Collage.circle 100
+                    |> Collage.styled
+                        ( redRotatedBy r
+                        , { defaultLineStyle | thickness = 5.0 }
+                        )
+            )
         |> Layout.horizontal
         |> Render.svg
-

@@ -1,9 +1,8 @@
-module Figures.Fig01 exposing (..)
+module Figures.Fig01 exposing (main)
 
-
-import Html exposing (Html)
 import Collage
 import Collage.Render as Render
+import Html exposing (Html)
 
 
 main : Html msg
@@ -11,4 +10,3 @@ main =
     Collage.circle 10
         |> Collage.outlined Collage.defaultLineStyle
         |> Render.svg
-

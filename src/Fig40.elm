@@ -1,11 +1,10 @@
-module Figures.Fig40 exposing (..)
+module Figures.Fig40 exposing (main, pentagon, spacer, square, style, triangle)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 triangle : Collage.Shape
@@ -33,13 +32,14 @@ style shape =
     let
         fillColor =
             Collage.uniform Color.lightGreen
+
         lineStyle =
             { defaultLineStyle
-            |  fill = Collage.uniform Color.lightBlue
-            , thickness = 3.0
+                | fill = Collage.uniform Color.lightBlue
+                , thickness = 3.0
             }
     in
-    Collage.styled (fillColor, lineStyle) shape
+    Collage.styled ( fillColor, lineStyle ) shape
 
 
 main : Html msg
@@ -49,4 +49,3 @@ main =
         |> List.intersperse spacer
         |> Layout.horizontal
         |> Render.svg
-

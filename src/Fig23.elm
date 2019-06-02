@@ -1,10 +1,9 @@
-module Figures.Fig23 exposing (..)
+module Figures.Fig23 exposing (cross, main, unit)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
+import Html exposing (Html)
 
 
 unit : Collage.Collage msg
@@ -15,13 +14,17 @@ unit =
 cross : Int -> Collage.Collage msg
 cross n =
     case n of
-        0 -> unit
-        _ -> let
-                inBetween = [ unit, cross (n - 1),  unit ]
-                                |> Layout.vertical
-                                |> Layout.align Layout.base
-             in
-             [ unit, inBetween, unit ]
+        0 ->
+            unit
+
+        _ ->
+            let
+                inBetween =
+                    [ unit, cross (n - 1), unit ]
+                        |> Layout.vertical
+                        |> Layout.align Layout.base
+            in
+            [ unit, inBetween, unit ]
                 |> Layout.horizontal
                 |> Layout.align Layout.base
 
@@ -34,4 +37,3 @@ main =
         |> Layout.horizontal
         |> Layout.align Layout.base
         |> Render.svg
-

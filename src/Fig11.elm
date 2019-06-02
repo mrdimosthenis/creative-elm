@@ -1,11 +1,10 @@
-module Figures.Fig11 exposing (..)
+module Figures.Fig11 exposing (lighten, main, saturate)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 lighten : Float -> Color.Color -> Color.Color
@@ -32,20 +31,26 @@ main =
         circleLightedBy x =
             (lighten x Color.red
                 |> Collage.uniform
-                |> Collage.filled)
-                <| Collage.circle 20
+                |> Collage.filled
+            )
+            <|
+                Collage.circle 20
+
         circles =
             List.map circleLightedBy [ -0.2, 0.0, 0.2 ]
+
         rectangleSaturatedBy x =
             (saturate x Color.red
                 |> Collage.uniform
-                |> Collage.filled)
-                <| Collage.rectangle 40 40
+                |> Collage.filled
+            )
+            <|
+                Collage.rectangle 40 40
+
         rectangles =
-            List.map rectangleSaturatedBy [ -0.6, -0.3 , 0.0 ]
+            List.map rectangleSaturatedBy [ -0.6, -0.3, 0.0 ]
     in
     [ circles, rectangles ]
         |> List.map Layout.horizontal
         |> Layout.vertical
         |> Render.svg
-

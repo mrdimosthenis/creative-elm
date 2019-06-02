@@ -1,51 +1,54 @@
-module Figures.Fig57 exposing (..)
+module Figures.Fig57 exposing (Model, Msg(..), coloredRectangle, init, main, randomColor, randomColorBoxes, randomHue, subscriptions, update, view)
 
-
-import Html exposing (Html)
 import Browser
 import Collage exposing (Collage)
 import Collage.Layout as Layout
 import Collage.Render as Render
 import Color exposing (Color)
+import Html exposing (Html)
 import Random
+
 
 
 -- MAIN
 
 
 main =
-  Browser.element
-    { init = init
-    , update = update
-    , subscriptions = subscriptions
-    , view = view
-    }
+    Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
+
 
 
 -- MODEL
 
 
 type alias Model =
-  Collage Msg
+    Collage Msg
 
 
-init : () -> (Model, Cmd Msg)
+init : () -> ( Model, Cmd Msg )
 init _ =
-  ( Layout.empty, Random.generate ColorBoxes (randomColorBoxes 4) )
+    ( Layout.empty, Random.generate ColorBoxes (randomColorBoxes 4) )
+
 
 
 -- UPDATE
 
 
 type Msg
-  = ColorBoxes (Collage Msg)
+    = ColorBoxes (Collage Msg)
 
 
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg _ =
-  case msg of
-    ColorBoxes colorBoxes ->
-      ( colorBoxes, Cmd.none )
+    case msg of
+        ColorBoxes colorBoxes ->
+            ( colorBoxes, Cmd.none )
+
 
 
 -- SUBSCRIPTIONS
@@ -53,7 +56,8 @@ update msg _ =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-  Sub.none
+    Sub.none
+
 
 
 -- VIEW
@@ -64,11 +68,13 @@ view model =
     Render.svg model
 
 
+
 -- Actual Implementation
 
 
-randomHue: Random.Generator Float
-randomHue = Random.float 0 1
+randomHue : Random.Generator Float
+randomHue =
+    Random.float 0 1
 
 
 randomColor : Random.Generator Color.Color
@@ -84,14 +90,17 @@ coloredRectangle color =
 randomColorBoxes : Int -> Random.Generator (Collage.Collage msg)
 randomColorBoxes n =
     let
-        box = Random.map coloredRectangle randomColor
+        box =
+            Random.map coloredRectangle randomColor
     in
     case n of
-        0 -> box
-        _ -> box
-             |> Random.andThen
+        0 ->
+            box
+
+        _ ->
+            box
+                |> Random.andThen
                     (\b ->
                         randomColorBoxes (n - 1)
-                        |> Random.map (\bs -> Layout.horizontal (b :: [bs]))
+                            |> Random.map (\bs -> Layout.horizontal (b :: [ bs ]))
                     )
-

@@ -1,11 +1,10 @@
-module Figures.Fig12 exposing (..)
+module Figures.Fig12 exposing (main, transparent)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 transparent : Float -> Color.Color -> Color.Color
@@ -23,6 +22,7 @@ main =
         circle color =
             Collage.circle 40
                 |> Collage.filled (Collage.uniform color)
+
         twoCircles =
             [ Color.red, Color.blue ]
                 |> List.map (circle << transparent 0.5)
@@ -37,4 +37,3 @@ main =
         |> List.append twoCircles
         |> Layout.stack
         |> Render.svg
-

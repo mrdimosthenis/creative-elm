@@ -1,58 +1,61 @@
-module Figures.Fig59 exposing (..)
+module Figures.Fig59 exposing (Model, Msg(..), coloredRectangle, init, main, nextColor, randomGradientBoxes, spin, subscriptions, update, view)
 
-
-import Html exposing (Html)
 import Browser
 import Collage exposing (Collage, defaultLineStyle)
 import Collage.Layout as Layout
 import Collage.Render as Render
 import Color exposing (Color)
+import Html exposing (Html)
 import Random
 import Random.Float as RandFl
+
 
 
 -- MAIN
 
 
 main =
-  Browser.element
-    { init = init
-    , update = update
-    , subscriptions = subscriptions
-    , view = view
-    }
+    Browser.element
+        { init = init
+        , update = update
+        , subscriptions = subscriptions
+        , view = view
+        }
+
 
 
 -- MODEL
 
 
 type alias Model =
-  Collage Msg
+    Collage Msg
 
 
-init : () -> (Model, Cmd Msg)
+init : () -> ( Model, Cmd Msg )
 init _ =
     let
         command =
             Color.blue
-            |> randomGradientBoxes 9
-            |> Random.generate GradientBoxes
+                |> randomGradientBoxes 9
+                |> Random.generate GradientBoxes
     in
-    (Layout.empty, command)
+    ( Layout.empty, command )
+
 
 
 -- UPDATE
 
 
 type Msg
-  = GradientBoxes (Collage Msg)
+    = GradientBoxes (Collage Msg)
 
 
-update : Msg -> Model -> (Model, Cmd Msg)
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg _ =
-  case msg of
-    GradientBoxes gradientBoxes ->
-      ( gradientBoxes, Cmd.none )
+    case msg of
+        GradientBoxes gradientBoxes ->
+            ( gradientBoxes, Cmd.none )
+
 
 
 -- SUBSCRIPTIONS
@@ -60,7 +63,8 @@ update msg _ =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-  Sub.none
+    Sub.none
+
 
 
 -- VIEW
@@ -69,6 +73,7 @@ subscriptions _ =
 view : Model -> Html Msg
 view model =
     Render.svg model
+
 
 
 -- Actual Implementation
@@ -91,27 +96,30 @@ nextColor color =
 coloredRectangle : Color.Color -> Collage.Collage msg
 coloredRectangle color =
     Collage.styled
-            ( Collage.uniform color
-            , { defaultLineStyle
-              | fill = Collage.uniform (spin (degrees 30) color)
-              , thickness = 2.5
-              }
-            )
-            (Collage.rectangle 40 40)
+        ( Collage.uniform color
+        , { defaultLineStyle
+            | fill = Collage.uniform (spin (degrees 30) color)
+            , thickness = 2.5
+          }
+        )
+        (Collage.rectangle 40 40)
 
 
 randomGradientBoxes : Int -> Color.Color -> Random.Generator (Collage.Collage msg)
 randomGradientBoxes n color =
     case n of
-        0 -> Random.constant Layout.empty
-        _ -> let
+        0 ->
+            Random.constant Layout.empty
+
+        _ ->
+            let
                 box =
                     coloredRectangle color
+
                 boxes =
                     color
-                    |> nextColor
-                    |> Random.andThen (randomGradientBoxes (n - 1))
-             in
-             boxes
-             |> Random.map (\b -> Layout.horizontal (box :: [b]))
-
+                        |> nextColor
+                        |> Random.andThen (randomGradientBoxes (n - 1))
+            in
+            boxes
+                |> Random.map (\b -> Layout.horizontal (box :: [ b ]))

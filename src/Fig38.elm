@@ -1,17 +1,19 @@
-module Figures.Fig38 exposing (..)
+module Figures.Fig38 exposing (circle, circleOnSquare, concentricShapes, main, outlinedCircle, square)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
+import Html exposing (Html)
 
 
 concentricShapes : Int -> (Int -> Collage.Collage msg) -> Collage.Collage msg
 concentricShapes n shape =
     case n of
-        0 -> Layout.empty
-        _ -> concentricShapes (n - 1) shape
+        0 ->
+            Layout.empty
+
+        _ ->
+            concentricShapes (n - 1) shape
                 |> List.singleton
                 |> (::) (shape n)
                 |> Layout.stack
@@ -20,8 +22,8 @@ concentricShapes n shape =
 circle : Int -> Collage.Shape
 circle size =
     size
-    |> toFloat
-    |> Collage.circle
+        |> toFloat
+        |> Collage.circle
 
 
 square : Int -> Collage.Shape
@@ -35,17 +37,21 @@ square size =
 
 outlinedCircle : Int -> Collage.Collage msg
 outlinedCircle n =
-    10 * n
-    |> toFloat
-    |> Collage.circle
-    |> Collage.outlined defaultLineStyle
+    10
+        * n
+        |> toFloat
+        |> Collage.circle
+        |> Collage.outlined defaultLineStyle
 
 
 circleOnSquare : Int -> Collage.Collage msg
 circleOnSquare n =
- Collage.outlined defaultLineStyle
-    <| if modBy 2 n == 0 then square (n * 20)
-       else circle (n * 10)
+    Collage.outlined defaultLineStyle <|
+        if modBy 2 n == 0 then
+            square (n * 20)
+
+        else
+            circle (n * 10)
 
 
 main : Html msg
@@ -53,6 +59,5 @@ main =
     [ concentricShapes 10 outlinedCircle
     , concentricShapes 10 circleOnSquare
     ]
-    |> Layout.horizontal
-    |> Render.svg
-
+        |> Layout.horizontal
+        |> Render.svg

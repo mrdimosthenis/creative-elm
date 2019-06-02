@@ -1,13 +1,13 @@
-module Figures.Fig32 exposing (..)
+module Figures.Fig32 exposing (dotAt, main)
 
-
+import Color
 import Html exposing (Html)
 import TypedSvg
-import TypedSvg.Core as Svg
 import TypedSvg.Attributes as Attr
 import TypedSvg.Attributes.InPx as PxAttr
+import TypedSvg.Core as Svg
 import TypedSvg.Types as SvgTypes
-import Color
+
 
 dotAt : Float -> Float -> Svg.Svg msg
 dotAt x y =
@@ -33,4 +33,3 @@ main =
         , dotAt 10.0 90.0
         , dotAt 90.0 90.0
         ]
-

@@ -1,11 +1,10 @@
-module Figures.Fig17 exposing (..)
+module Figures.Fig17 exposing (main, spin)
 
-
-import Html exposing (Html)
 import Collage exposing (defaultLineStyle)
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 spin : Float -> Color.Color -> Color.Color
@@ -32,4 +31,3 @@ main =
     List.repeat 5 box
         |> Layout.horizontal
         |> Render.svg
-

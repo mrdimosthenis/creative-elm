@@ -1,11 +1,10 @@
-module Figures.Fig24 exposing (..)
+module Figures.Fig24 exposing (base, blackSquare, chessBoard, main, redSquare)
 
-
-import Html exposing (Html)
 import Collage
-import Collage.Render as Render
 import Collage.Layout as Layout
+import Collage.Render as Render
 import Color
+import Html exposing (Html)
 
 
 blackSquare : Collage.Collage msg
@@ -21,12 +20,15 @@ redSquare =
 base : Collage.Collage msg
 base =
     let
-        topRow = [ redSquare, blackSquare ]
-                    |> Layout.horizontal
-                    |> Layout.align Layout.base
-        bottomRow = [ blackSquare, redSquare ]
-                        |> Layout.horizontal
-                        |> Layout.align Layout.base
+        topRow =
+            [ redSquare, blackSquare ]
+                |> Layout.horizontal
+                |> Layout.align Layout.base
+
+        bottomRow =
+            [ blackSquare, redSquare ]
+                |> Layout.horizontal
+                |> Layout.align Layout.base
     in
     [ topRow, bottomRow ]
         |> Layout.vertical
@@ -36,14 +38,20 @@ base =
 chessBoard : Int -> Collage.Collage msg
 chessBoard n =
     case n of
-        0 -> base
-        _ -> let
-                unit = chessBoard (n - 1)
-                unitBesideUnit = [ unit, unit ]
-                                    |> Layout.horizontal
-                                    |> Layout.align Layout.base
-             in
-             [ unitBesideUnit, unitBesideUnit ]
+        0 ->
+            base
+
+        _ ->
+            let
+                unit =
+                    chessBoard (n - 1)
+
+                unitBesideUnit =
+                    [ unit, unit ]
+                        |> Layout.horizontal
+                        |> Layout.align Layout.base
+            in
+            [ unitBesideUnit, unitBesideUnit ]
                 |> Layout.vertical
                 |> Layout.align Layout.base
 
@@ -56,4 +64,3 @@ main =
         |> Layout.horizontal
         |> Layout.align Layout.base
         |> Render.svg
-

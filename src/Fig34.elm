@@ -1,20 +1,19 @@
-module Figures.Fig34 exposing (..)
+module Figures.Fig34 exposing (dotAtParamCircle, loop, main, sample, triangleAt)
 
-
+import Color
 import Html exposing (Html)
-import Vector2d
 import TypedSvg
-import TypedSvg.Core as Svg
 import TypedSvg.Attributes as Attr
 import TypedSvg.Attributes.InPx as PxAttr
+import TypedSvg.Core as Svg
 import TypedSvg.Types as SvgTypes
-import Color
+import Vector2d
 
 
 triangleAt : Vector2d.Vector2d -> Svg.Svg msg
 triangleAt point =
     let
-        (x, y) =
+        ( x, y ) =
             Vector2d.components point
     in
     TypedSvg.svg
@@ -24,11 +23,12 @@ triangleAt point =
         [ TypedSvg.polyline
             [ Attr.fill SvgTypes.FillNone
             , Attr.stroke Color.black
-            , Attr.points [ (5.0, 0.0)
-                          , (0.0, 10.0)
-                          , (10.0, 10.0)
-                          , (5.0, 0.0)
-                          ]
+            , Attr.points
+                [ ( 5.0, 0.0 )
+                , ( 0.0, 10.0 )
+                , ( 10.0, 10.0 )
+                , ( 5.0, 0.0 )
+                ]
             ]
             []
         ]
@@ -36,9 +36,9 @@ triangleAt point =
 
 dotAtParamCircle : Float -> Svg.Svg msg
 dotAtParamCircle angle =
-    (200, angle)
+    ( 200, angle )
         |> Vector2d.fromPolarComponents
-        |> Vector2d.sum (Vector2d.fromComponents (200, 200))
+        |> Vector2d.sum (Vector2d.fromComponents ( 200, 200 ))
         |> triangleAt
 
 
@@ -49,8 +49,11 @@ loop step count =
             step * toFloat count
     in
     case count of
-        0 -> TypedSvg.g [] []
-        _ -> TypedSvg.g [] [ dotAtParamCircle angle, loop step (count - 1) ]
+        0 ->
+            TypedSvg.g [] []
+
+        _ ->
+            TypedSvg.g [] [ dotAtParamCircle angle, loop step (count - 1) ]
 
 
 sample : Int -> Svg.Svg msg
@@ -69,4 +72,3 @@ main =
         , PxAttr.height 410.0
         ]
         [ sample 72 ]
-
