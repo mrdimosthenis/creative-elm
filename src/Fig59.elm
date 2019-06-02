@@ -4,7 +4,7 @@ import Browser
 import Collage exposing (Collage, defaultLineStyle)
 import Collage.Layout as Layout
 import Collage.Render as Render
-import Color exposing (Color)
+import Color
 import Html exposing (Html)
 import Random
 import Random.Float as RandFl
@@ -122,4 +122,4 @@ randomGradientBoxes n color =
                         |> Random.andThen (randomGradientBoxes (n - 1))
             in
             boxes
-                |> Random.map (\b -> Layout.horizontal (box :: [ b ]))
+                |> Random.map (\b -> Layout.horizontal [ box, b ])

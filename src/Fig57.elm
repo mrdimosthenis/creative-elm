@@ -4,7 +4,7 @@ import Browser
 import Collage exposing (Collage)
 import Collage.Layout as Layout
 import Collage.Render as Render
-import Color exposing (Color)
+import Color
 import Html exposing (Html)
 import Random
 
@@ -102,5 +102,5 @@ randomColorBoxes n =
                 |> Random.andThen
                     (\b ->
                         randomColorBoxes (n - 1)
-                            |> Random.map (\bs -> Layout.horizontal (b :: [ bs ]))
+                            |> Random.map (\bs -> Layout.horizontal [ b, bs ])
                     )

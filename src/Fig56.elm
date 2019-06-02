@@ -4,7 +4,7 @@ import Browser
 import Collage exposing (Collage)
 import Collage.Layout as Layout
 import Collage.Render as Render
-import Color exposing (Color)
+import Color
 import Html exposing (Html)
 import Random
 
@@ -110,5 +110,5 @@ randomConcentricCircles n radius =
                 |> Random.andThen
                     (\circle ->
                         randomConcentricCircles (n - 1) (radius + 5)
-                            |> Random.map (\circles -> Layout.stack (circle :: [ circles ]))
+                            |> Random.map (\circles -> Layout.stack [ circle, circles ])
                     )

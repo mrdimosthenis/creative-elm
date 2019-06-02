@@ -1,7 +1,7 @@
 module Figures.Fig60 exposing (Model, Msg(..), empty, init, loop, main, particleSystem, render, step, subscriptions, update, view, walk)
 
 import Browser
-import Color exposing (Color)
+import Color
 import Html exposing (Html)
 import Random
 import Random.Float as RandFl
